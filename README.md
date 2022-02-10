@@ -1,1 +1,1 @@
-simple todo-list api bulit using django rest framework
+simple todo-list api built using django rest framework
