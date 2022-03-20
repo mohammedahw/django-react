@@ -1,4 +1,4 @@
 simple todo-list api built using django rest framework and frontend using react
 
 
-![React App Screenshot](https://user-images.githubusercontent.com/75927777/159164410-ed081fc9-602b-4228-8486-9281f55d8e3d.svg)
+![React App Screenshot (1)](https://user-images.githubusercontent.com/75927777/159164430-ce7403ef-46a9-446f-be71-b8472c11384e.svg)
