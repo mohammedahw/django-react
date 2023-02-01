@@ -5,6 +5,8 @@ from api.models import Task
 from .serializers import TaskSerializer
 
 # Create your views here.
+
+
 @api_view(['GET'])
 def api_overview(request):
     api_urls = {
@@ -12,9 +14,10 @@ def api_overview(request):
         'detail': '/task-detail/<str:pk>',
         'create': '/task-create/',
         'update': '/task-update/<str:pk>',
-        'delete':'/task-delete/<str:pk>'
+        'delete': '/task-delete/<str:pk>'
     }
     return Response(api_urls)
+
 
 @api_view(['GET'])
 def task_list(request):
@@ -22,11 +25,13 @@ def task_list(request):
     serializer = TaskSerializer(tasks, many=True)
     return Response(serializer.data)
 
+
 @api_view(['GET'])
 def task_detail(request, pk):
     tasks = Task.objects.get(id=pk)
     serializer = TaskSerializer(tasks, many=False)
     return Response(serializer.data)
+
 
 @api_view(['POST'])
 def task_create(request):
@@ -35,13 +40,15 @@ def task_create(request):
         serializer.save()
     return Response(serializer.data)
 
-@api_view(['POST'])
+
+@api_view(['PATCH'])
 def task_update(request, pk):
     task = Task.objects.get(id=pk)
     serializer = TaskSerializer(instance=task, data=request.data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
+
 
 @api_view(['DELETE'])
 def task_delete(request, pk):
